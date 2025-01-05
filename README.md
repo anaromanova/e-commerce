@@ -10,7 +10,7 @@ E-commerce  — электронная торговля, или электрон
 
 Клонируйте репозиторий:
 ```
-git clone https://github.com/anaromanova/course_project.git
+git clone https://github.com/anaromanova/e-commerce.git
 ```
 
 ## Документация:
