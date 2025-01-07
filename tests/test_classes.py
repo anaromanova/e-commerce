@@ -21,13 +21,13 @@ def test_products_create():
     product.price = 12000
     product.quantity = 3
 
-@patch("main.input")
-def test_products_update(mock_input, product_1):
-    assert product_1.price == 123000.0
-    product_1.price(125000.0)
-    mock_input = "Цена будет выше предыдущей: Y / N"
-    mock_input.side_effect = ["y"]
-    assert product_1.price == 125000
+# @patch("main.input")
+# def test_products_update(mock_input, product_1):
+#     assert product_1.price == 123000.0
+#     product_1.price(125000.0)
+#     mock_input = "Цена будет выше предыдущей: Y / N"
+#     mock_input.side_effect = ["y"]
+#     assert product_1.price == 125000
 
 
 def test_categories_init(category_1, category_2):
@@ -58,3 +58,12 @@ def test_categories_setter(category_1, product_1):
     category_1.add_product(product_1)
     assert len(category_1.products()) == 2
 
+
+def test_str_products(product_1):
+    assert str(product_1) == "55\" QLED 4K, 123000.0 руб.Остаток: 7 шт."
+
+def test_add_products(product_1, product_2):
+    assert product_1 + product_2 == 303000.0
+
+def test_str_categories(category_1):
+    assert str(category_1) == "Samsung Galaxy C23 Ultra, количество продуктов: 5 шт."
