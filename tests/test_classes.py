@@ -21,13 +21,13 @@ def test_products_create():
     product.price = 12000
     product.quantity = 3
 
-# @patch("main.input")
-# def test_products_update(mock_input, product_1):
-#     assert product_1.price == 123000.0
-#     product_1.price(125000.0)
-#     mock_input = "Цена будет выше предыдущей: Y / N"
-#     mock_input.side_effect = ["y"]
-#     assert product_1.price == 125000
+@patch("main.input")
+def test_products_update(mock_input, product_1):
+    assert product_1.price == 123000.0
+    product_1.price(125000.0)
+    mock_input = "Цена будет выше предыдущей: Y / N"
+    mock_input.side_effect = ["y"]
+    assert product_1.price == 125000
 
 
 def test_categories_init(category_1, category_2):
