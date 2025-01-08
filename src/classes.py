@@ -15,7 +15,7 @@ class Product:
 
     def __add__(self, other):
         if type(self) is type(other):
-            return "self.price() * self.quantity + other.price() * other.quantity"
+            return self.__price * self.quantity + other.__price * other.quantity
 
 
     @classmethod
