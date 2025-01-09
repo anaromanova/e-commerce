@@ -11,7 +11,7 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        return f'{self.name}, {self.price} руб.Остаток: {self.quantity} шт.'
+        return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
         if type(self) is type(other):
@@ -74,16 +74,16 @@ class Category:
 
     def __str__(self):
         products_sum = 0
-        for product in Category.__products:
+        for product in self.__products:
             products_sum += product.quantity
-        return f'{product.name}, количество продуктов: {products_sum} шт.'
+        return f'{self.name}, количество продуктов: {products_sum} шт.'
 
 
     @staticmethod
     def str_category() -> list[str]:
         products_str = []
         for product in Category.__products:
-            products_str.append(f'{product.name}, {product.price} руб.Остаток: {product.quantity} шт.\n')
+            products_str.append(f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n')
         return products_str
 
     @staticmethod
