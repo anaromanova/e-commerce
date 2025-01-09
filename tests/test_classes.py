@@ -21,11 +21,11 @@ def test_products_create():
     product.price = 12000
     product.quantity = 3
 
-@patch("main.input")
+@patch("src.classes.input")
 def test_products_update(mock_input, product_1):
-    assert product_1.price == 123000.0
-    product_1.price(new_price=125000.0)
     mock_input.side_effect = ["y"]
+    assert product_1.price == 123000.0
+    product_1.price = 125000.0
     assert product_1.price == 125000.0
 
 
