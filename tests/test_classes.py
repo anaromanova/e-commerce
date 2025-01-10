@@ -42,8 +42,8 @@ def test_categories_init(category_1, category_2):
     assert category_2.category_count == 2
     assert category_1.product_count == 2
     assert category_2.product_count == 2
-    assert len(category_1.products()) == 1
-    assert len(category_2.products()) == 1
+    assert len(category_1.products) == 1
+    assert len(category_2.products) == 1
 
 
 def test_categories_property(category_1, product_1):
@@ -53,16 +53,16 @@ def test_categories_property(category_1, product_1):
 
 
 def test_categories_setter(category_1, product_1):
-    assert len(category_1.products()) == 1
+    assert len(category_1.products) == 1
     category_1.add_product(product_1)
-    assert len(category_1.products()) == 2
+    assert len(category_1.products) == 2
 
 
 def test_str_products(product_1):
-    assert str(product_1) == "55\" QLED 4K, 123000.0 руб.Остаток: 7 шт."
+    assert str(product_1) == "55\" QLED 4K, 123000.0 руб. Остаток: 7 шт."
 
 def test_add_products(product_1, product_2):
     assert product_1 + product_2 == 1761000.0
 
 def test_str_categories(category_1):
-    assert str(category_1) == "Samsung Galaxy C23 Ultra, количество продуктов: 5 шт."
+    assert str(category_1) == "Смартфоны, количество продуктов: 5 шт."

@@ -17,16 +17,15 @@ class Product:
         if type(self) is type(other):
             return self.__price * self.quantity + other.__price * other.quantity
 
-
     @classmethod
     def new_product(cls, dict_of_product: dict):
-        for product in Category.products():
+        for product in Category.__products:
             if dict_of_product['name'] == product.name:
                 quantity = dict_of_product["quantity"] + product.quantity
                 cls.quantity = quantity
             else:
                 cls.quantity = dict_of_product["quantity"]
-        for product in Category.products():
+        for product in Category.__products:
             if dict_of_product["name"] == product.name:
                 max_price = max(dict_of_product["price"], product.price)
                 cls.__price = max_price
@@ -35,11 +34,9 @@ class Product:
         cls.quantity = dict_of_product["quantity"]
         return Product(cls.name, cls.description, cls.quantity, cls.__price)
 
-
     @property
     def price(self):
         return self.__price
-
 
     @price.setter
     def price(self, new_price):
@@ -78,7 +75,6 @@ class Category:
             products_sum += product.quantity
         return f'{self.name}, количество продуктов: {products_sum} шт.'
 
-
     @staticmethod
     def str_category() -> list[str]:
         products_str = []
@@ -86,11 +82,13 @@ class Category:
             products_str.append(f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n')
         return products_str
 
-    @staticmethod
-    def products():
-        return Category.__products
+    @property
+    def products(self):
+        products_str = []
+        for product in self.__products:
+            products_str.append(f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n')
+        return products_str
 
-    @staticmethod
-    def add_product(new_product: Product):
-        Category.__products.append(new_product)
+    def add_product(self, new_product: Product):
+        self.__products.append(new_product)
         Category.product_count += 1
