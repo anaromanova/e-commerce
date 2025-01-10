@@ -109,4 +109,3 @@ def test_add_products_error(product_1, lawngrass_1):
 def test_categories_setter_error(category_1, category_2):
     with pytest.raises(TypeError):
         category_1.add_product(category_2)
-
