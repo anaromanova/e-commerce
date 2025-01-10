@@ -1,5 +1,5 @@
 import pytest
-from src.classes import Product, Category
+from src.classes import Product, Category, LawnGrass, Smartphone
 
 
 @pytest.fixture
@@ -43,3 +43,57 @@ def product_2():
         "256GB, Серый цвет, 200MP камера",
         180000.0,
         5)
+
+
+@pytest.fixture
+def lawngrass_1():
+    return LawnGrass(
+        "grass",
+        "grass from China",
+        800,
+        100,
+        'China',
+        5,
+        'green'
+    )
+
+
+@pytest.fixture
+def lawngrass_2():
+    return LawnGrass(
+        "grass",
+        "grass from Finland",
+        1800,
+        200,
+        'Finland',
+        15,
+        'green'
+    )
+
+
+@pytest.fixture
+def smartphone_1():
+    return Smartphone(
+        "IPhone 15",
+        "Apple",
+        50000,
+        200,
+        3000,
+        15,
+        256,
+        'green'
+    )
+
+
+@pytest.fixture
+def smartphone_2():
+    return Smartphone(
+        "IPhone 14",
+        "Apple",
+        40000,
+        200,
+        3000,
+        14,
+        256,
+        'gold'
+    )
