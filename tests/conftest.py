@@ -1,6 +1,5 @@
 import pytest
-from src.products import Product
-from src.categories import Category
+from src.classes import Product, Category, LawnGrass, Smartphone
 
 
 @pytest.fixture
@@ -8,7 +7,7 @@ def category_1():
     return Category(
         name='Смартфоны',
         description='Смартфоны, как средство не только коммуникации,\
-                    но и получение дополнительных функций для удобства жизни',
+ но и получение дополнительных функций для удобства жизни',
         products=[Product("Samsung Galaxy C23 Ultra",
                           "256GB, Серый цвет, 200MP камера",
                           180000.0,
@@ -20,8 +19,8 @@ def category_2():
     return Category(
         name='Телевизоры',
         description='Современный телевизор,\
-                     который позволяет наслаждаться просмотром,\
-                     станет вашим другом и помощником',
+ который позволяет наслаждаться просмотром,\
+ станет вашим другом и помощником',
         products=[Product("55\" QLED 4K",
                           "Фоновая подсветка",
                           123000.0,
@@ -44,3 +43,57 @@ def product_2():
         "256GB, Серый цвет, 200MP камера",
         180000.0,
         5)
+
+
+@pytest.fixture
+def lawngrass_1():
+    return LawnGrass(
+        "grass",
+        "grass from China",
+        800,
+        100,
+        'China',
+        5,
+        'green'
+    )
+
+
+@pytest.fixture
+def lawngrass_2():
+    return LawnGrass(
+        "grass",
+        "grass from Finland",
+        1800,
+        200,
+        'Finland',
+        15,
+        'green'
+    )
+
+
+@pytest.fixture
+def smartphone_1():
+    return Smartphone(
+        "IPhone 15",
+        "Apple",
+        50000,
+        200,
+        3000,
+        15,
+        256,
+        'green'
+    )
+
+
+@pytest.fixture
+def smartphone_2():
+    return Smartphone(
+        "IPhone 14",
+        "Apple",
+        40000,
+        200,
+        3000,
+        14,
+        256,
+        'gold'
+    )
