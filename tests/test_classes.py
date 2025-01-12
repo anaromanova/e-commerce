@@ -121,11 +121,11 @@ def test_print_mixin(capsys):
 
 
 def test_avg_price(category_1):
-    assert category_1.avg_price() == 180000.0
+    assert category_1.middle_price() == 180000.0
 
 
 def test_avg_price_with_zero_price(category_with_zero_price):
-    assert category_with_zero_price.avg_price() == 0
+    assert category_with_zero_price.middle_price() == 0
 
 
 def test_init_zero_quantity():

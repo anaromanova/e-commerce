@@ -105,7 +105,7 @@ class Category:
         else:
             raise TypeError
 
-    def avg_price(self):
+    def middle_price(self):
         try:
             return sum([product.price for product in self.__products])/len(self.products)
         except ZeroDivisionError:
