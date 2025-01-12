@@ -118,3 +118,22 @@ def test_print_mixin(capsys):
         7)
     message = capsys.readouterr()
     assert message.out.strip() == 'Product(55\" QLED 4K, Фоновая подсветка, 123000.0, 7)'
+
+
+def test_avg_price(category_1):
+    assert category_1.avg_price() == 180000.0
+
+
+def test_avg_price_with_zero_price(category_with_zero_price):
+    assert category_with_zero_price.avg_price() == 0
+
+
+def test_init_zero_quantity():
+    with pytest.raises(ValueError) as exc_info:
+        Product(
+            "55\" QLED 4K",
+            "Фоновая подсветка",
+            123000.0,
+            0)
+
+    assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен"

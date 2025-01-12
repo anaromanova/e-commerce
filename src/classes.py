@@ -12,7 +12,10 @@ class Product(BaseProduct, MixinProduct):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            raise ValueError('Товар с нулевым количеством не может быть добавлен')
         super().__init__()
 
     def __str__(self):
@@ -101,6 +104,12 @@ class Category:
             Category.product_count += 1
         else:
             raise TypeError
+
+    def avg_price(self):
+        try:
+            return sum([product.price for product in self.__products])/len(self.products)
+        except ZeroDivisionError:
+            return 0
 
 
 class Smartphone(Product):
